@@ -3,7 +3,7 @@ class(top,none,[],[],[]),
     
 class(animales,top,[],[],[]),
     
-class(aves,animales,[vuelan,not(nadan)],[],[]),
+class(aves,animales,[vuelan,not(nadan)],[son=>animales],[]),
     
 class(peces,animales,[nadan,not(bailan)],[],
     [

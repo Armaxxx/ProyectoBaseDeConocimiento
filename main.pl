@@ -1,6 +1,10 @@
+:-consult('Consulta - Common.pl').
 :-consult('Consulta - a.pl').
 :-consult('Consulta - b.pl').
 :-consult('Consulta - c.pl').
+:-consult('Consulta - d.pl').
+:-consult('Consulta - e.pl').
+:-consult('Consulta - f.pl').
 :- op(15,xfx,'=>').
 %--------------------------------------------------
 % Load and Save from files
