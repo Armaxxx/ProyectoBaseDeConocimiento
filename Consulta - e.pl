@@ -4,7 +4,7 @@ propiedades_de_objeto(Objeto, KB, TodasLasPropiedades):-
     hay_objeto(Objeto, KB, si),
     propiedades_solo_en_objeto(Objeto, KB, PropiedadesObjeto),
     clase_de_un_objeto(Objeto, KB, Clase),
-    propiedades_de_clase(Clase, KB, PropiedadesClase),
+    class_properties(Clase, KB, PropiedadesClase),
     append(PropiedadesObjeto, PropiedadesClase, Temp),
     eliminar_propiedades_repetidas(Temp, TodasLasPropiedades).
 propiedades_de_objeto(_, _, desconocido).
@@ -25,16 +25,16 @@ clase_de_un_objeto(Objeto, [class(C, _, _, _, O)|_], C):-
     esElemento([id=>Objeto, _, _], O).
 clase_de_un_objeto(Objeto, [_|T], Clase):-
     clase_de_un_objeto(Objeto, T, Clase).
-propiedades_de_clase(top, KB, Propiedades):-
+class_properties(top, KB, Propiedades):-
     propiedades_solo_en_la_clase(top, KB, Propiedades).
-propiedades_de_clase(Clase, KB, Propiedades):-
+class_properties(Clase, KB, Propiedades):-
     hay_clase(Clase, KB, si),
     propiedades_solo_en_la_clase(Clase, KB, PropiedadesClase),
     append([PropiedadesClase], PropiedadesAncestros, TodasLasPropiedades),
     concatenar_propiedades_de_ancestros(Ancestros, KB, PropiedadesAncestros),
     lista_de_ancestros(Clase, KB, Ancestros),
     cancelar_propiedades_repetidas(TodasLasPropiedades, Propiedades).
-propiedades_de_clase(Clase, KB, desconocido):-
+class_properties(Clase, KB, desconocido):-
     hay_clase(Clase, KB, desconocido).
 propiedades_solo_en_la_clase(_, [], []).
 propiedades_solo_en_la_clase(Clase, [class(Clase, _, Propiedades, _, _)|_], Propiedades).
