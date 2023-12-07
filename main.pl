@@ -1,3 +1,11 @@
+:-consult('Consulta - Common.pl').
+:-consult('Consulta - a.pl').
+:-consult('Consulta - b.pl').
+:-consult('Consulta - c.pl').
+:-consult('Consulta - d.pl').
+:-consult('Consulta - e.pl').
+:-consult('Consulta - f.pl').
+:- op(15,xfx,'=>').
 %--------------------------------------------------
 % Load and Save from files
 %--------------------------------------------------
@@ -35,10 +43,6 @@ atom_to_term(ATOM, TERM) :-
 	atom_to_chars('.',PTO),
 	append(STR,PTO,STR_PTO),
 	read_from_chars(STR_PTO,TERM).
-
-:- op(800,xfx,'=>').
-
-
 
 %------------------------------
 % Ejemplo:  
