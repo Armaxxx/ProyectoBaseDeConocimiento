@@ -103,7 +103,7 @@ clase_de_un_objeto(Objeto, [_|T], Clase):-
 concatenar_relaciones_de_ancestros([],_,[]).
 concatenar_relaciones_de_ancestros([Ancestro|T],KB,[Relaciones|NuevaT]):-
     concatenar_relaciones_de_ancestros(T,KB,NuevaT),
-    solo_relaciones_en_la_clase(Ancestro,KB,Relaciones).
+    relaciones_solo_en_la_clase(Ancestro,KB,Relaciones).
 hijos_de_una_clase(_,_,unknown).
 hijos_de_una_clase(_,[],[]).
 hijos_de_una_clase(Class,[class(Hijo,Class,_,_,_)|T],Hijos):-

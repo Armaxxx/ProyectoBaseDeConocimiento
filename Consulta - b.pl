@@ -1,5 +1,5 @@
 valor_propiedad_clase(Clase, Propiedad, KB, Valor):-
-    propiedades_clase(Clase, KB, PropiedadesClase),
+    class_properties(Clase, KB, PropiedadesClase),
     encontrar_valor(Propiedad, PropiedadesClase, Valor).
 encontrar_valor(_, [], unknown).
 encontrar_valor(Atributo, [Atributo=>Valor|_], Valor).
@@ -19,22 +19,22 @@ append_lista_de_listas([], []).
 append_lista_de_listas([H|T], X):-
     append(H, TLista, X),
     append_lista_de_listas(T, TLista).
-propiedades_clase(top, KB, Propiedades):-
+class_properties(top, KB, Propiedades):-
     propiedades_solo_en_la_clase(top, KB, Propiedades).
-propiedades_clase(Clase, KB, Propiedades):-
+class_properties(Clase, KB, Propiedades):-
     existe_clase(Clase, KB, yes),
     propiedades_solo_en_la_clase(Clase, KB, PropiedadesClase),
     append([PropiedadesClase], PropiedadesAncestros, TodasPropiedades),
     concat_propiedades_ancestros(Ancestros, KB, PropiedadesAncestros),
     lista_de_ancestros(Clase, KB, Ancestros),
     cancelar_valores_propiedad_repetidos(TodasPropiedades, Propiedades).
-propiedades_clase(Clase, KB, unknown):-
+class_properties(Clase, KB, unknown):-
     existe_clase(Clase, KB, unknown).
 propiedades_objeto(Objeto, KB, TodasPropiedades):-
     existe_objeto(Objeto, KB, yes),
     propiedades_solo_en_el_objeto(Objeto, KB, PropiedadesObjeto),
     clase_de_objeto(Objeto, KB, Clase),
-    propiedades_clase(Clase, KB, PropiedadesClase),
+    class_properties(Clase, KB, PropiedadesClase),
     append(PropiedadesObjeto, PropiedadesClase, Temp),
     eliminar_propiedades_repetidas(Temp, TodasPropiedades).
 propiedades_objeto(_, _, unknown).
