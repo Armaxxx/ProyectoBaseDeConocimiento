@@ -7,6 +7,7 @@
 :-consult('Consulta - f.pl').
 :-consult('pregunta02.pl').
 :-consult('pregunta03.pl').
+:-consult('Modificar - c.pl').
 :- op(15,xfx,'=>').
 %--------------------------------------------------
 % Load and Save from files

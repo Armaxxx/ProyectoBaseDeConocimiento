@@ -18,47 +18,6 @@ Ambos predicados recibirán tres argumentos:
 se refleja la eliminación.
 */
 
-%--------------------------------------------------
-% Load and Save from files
-%--------------------------------------------------
-
-
-%KB open and save
-
-
-open_kb(KBPATH,KB):-
-	open(KBPATH,read,Stream),
-	readclauses(Stream,X),
-	close(Stream),
-	atom_to_term_conversion(X,KB).
-
-save_kb(KBPATH,KB):-
-	open(KBPATH,write,Stream),
-	writeq(Stream,KB),
-	close(Stream).
-
-readclauses(InStream,W) :-
-        get0(InStream,Char),
-        checkCharAndReadRest(Char,Chars,InStream),
-	atom_chars(W,Chars). 
- 
-
-checkCharAndReadRest(-1,[],_) :- !.  % End of Stream	
-checkCharAndReadRest(end_of_file,[],_) :- !.
-
-checkCharAndReadRest(Char,[Char|Chars],InStream) :-
-        get0(InStream,NextChar),
-        checkCharAndReadRest(NextChar,Chars,InStream).
-
-atom_to_term_conversion(ATOM, TERM) :-
-	 atom(ATOM),
-	 atom_to_chars(ATOM,STR),
-	 atom_to_chars('.',PTO),
-	 append(STR,PTO,STR_PTO),
-	 read_from_chars(STR_PTO,TERM).
-
-
-
 /*Rerecusividad para eliminar 
 Elimina recursivamente un elemento X contenido en una lista
 */

@@ -15,9 +15,6 @@ encontrar_valor_relacion_positiva(_, [], unknown).
 encontrar_valor_relacion_positiva(Atributo, [Atributo => Valor | _], Valor).
 encontrar_valor_relacion_positiva(Atributo, [_ | T], Valor) :-
     encontrar_valor_relacion_positiva(Atributo, T, Valor).
-es_elemento(X, [X | _]).
-es_elemento(X, [_ | T]) :-
-    es_elemento(X, T).
 hijos_de_clase(Clase, KB, Respuesta) :-
     existe_clase(Clase, KB, yes),
     hijos_de_una_clase(Clase, KB, Respuesta).
