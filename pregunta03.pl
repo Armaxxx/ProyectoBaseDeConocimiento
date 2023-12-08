@@ -1,3 +1,23 @@
+%----------------------------------------------------------
+% Eliminación de clases, objetos, propiedades y relaciones
+%-----------------------------------------------------------
+/* Creación de predicados para eliminar 
+
+a) Clases objetos
+b) Propiedades específicas
+c) Relaciones específicas
+*/
+
+/*
+a) Eliminación Clases u objetos cuyo nombre 
+será rm_class y rm_object, respectivamente. 
+Ambos predicados recibirán tres argumentos: 
+(i) el nombre de la clase u objeto a eliminar, 
+(ii) la base de conocimientos actual,
+(iii) la nueva base de conocimientos donde 
+se refleja la eliminación.
+*/
+
 %--------------------------------------------------
 % Load and Save from files
 %--------------------------------------------------
@@ -20,7 +40,7 @@ save_kb(KBPATH,KB):-
 readclauses(InStream,W) :-
         get0(InStream,Char),
         checkCharAndReadRest(Char,Chars,InStream),
-	atom_chars(W,Chars).
+	atom_chars(W,Chars). 
  
 
 checkCharAndReadRest(-1,[],_) :- !.  % End of Stream	
@@ -37,25 +57,7 @@ atom_to_term_conversion(ATOM, TERM) :-
 	 append(STR,PTO,STR_PTO),
 	 read_from_chars(STR_PTO,TERM).
 
-%----------------------------------------------------------
-% Eliminación de clases, objetos, propiedades y relaciones
-%-----------------------------------------------------------
-/* Creación de predicados para eliminar 
 
-a) Clases objetos
-b) Propiedades específicas
-c) Relaciones específicas
-*/
-
-/*
-a) Eliminación Clases u objetos cuyo nombre 
-será rm_class y rm_object, respectivamente. 
-Ambos predicados recibirán tres argumentos: 
-(i) el nombre de la clase u objeto a eliminar, 
-(ii) la base de conocimientos actual,
-(iii) la nueva base de conocimientos donde 
-se refleja la eliminación.
-*/
 
 /*Rerecusividad para eliminar 
 Elimina recursivamente un elemento X contenido en una lista
