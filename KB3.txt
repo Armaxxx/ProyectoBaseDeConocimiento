@@ -1,0 +1,1 @@
+[class(top,none,[],[],[]),class(animales,top,[],[],[]),class(aves,animales,[vuelan,not(nadan)],[],[]),class(mamiferos,animales,[not(oviparos)],[],[]),class(aguilas,aves,[],[],[[(id=>pedro),[(tam=>grande)],[]]]),class(pinguino,aves,[not(vuelan),nadan],[],[]),class(ornitorrincos,mamiferos,[oviparos],[],[])]
