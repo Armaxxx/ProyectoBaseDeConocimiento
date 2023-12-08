@@ -1,7 +1,7 @@
-cambiar_valor_relacion_clase(Clase,Relacion,NuevaClaseRelacionada,KB,NuevoKB):-
+change_value_class_relation(Clase,Relacion,NuevaClaseRelacionada,KB,NuevoKB):-
 	quitar_relacion_clase(Clase,Relacion,KB,KBTemporal),
 	agregar_relacion_clase(Clase,Relacion,NuevaClaseRelacionada,KBTemporal,NuevoKB).
-cambiar_valor_relacion_objeto(Objeto,Relacion,NuevoObjetoRelacionado,KB,NuevoKB):-
+change_value_object_relation(Objeto,Relacion,NuevoObjetoRelacionado,KB,NuevoKB):-
 	quitar_relacion_objeto(Objeto,Relacion,KB,KBTemporal),
 	agregar_relacion_objeto(Objeto,Relacion,NuevoObjetoRelacionado,KBTemporal,NuevoKB).
 quitar_relacion_clase(Clase,not(Relacion),KB,NuevoKB) :-
