@@ -5,6 +5,8 @@
 :-consult('Consulta - d.pl').
 :-consult('Consulta - e.pl').
 :-consult('Consulta - f.pl').
+:-consult('pregunta02.pl').
+:-consult('pregunta03.pl').
 :- op(15,xfx,'=>').
 %--------------------------------------------------
 % Load and Save from files
